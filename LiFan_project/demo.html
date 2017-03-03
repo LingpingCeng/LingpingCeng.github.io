@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	.wrap{
+		height: 600px;
+		background: #000;
+		position: relative;
+	}
+	.wrap .box{
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		width: 400px;
+		height: 400px;
+		margin-left:-200px;
+		margin-top: -200px;
+		background: red;
+		display:block;
+		opacity: 0;
+	}
+	.wrap:hover .box{
+		animation: aa 1s ease; 
+	}
+	@keyframes aa{
+		0%{
+			opacity: 0;
+		}
+		100%{
+			opacity: 1;
+		}
+	}
+	</style>
+</head>
+<body>
+	<div class="wrap">
+		<div class="box"></div>
+	</div>
+</body>
+</html>

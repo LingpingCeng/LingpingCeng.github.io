@@ -1,0 +1,471 @@
+$(window).ready(function(e) {
+	// 菜单	
+	$(".menu").mouseenter(function(){
+		$(this).find(".logo").css({"display":"block","opacity":0});
+		// menu
+		$(".mn-m").stop(true,true).animate({opacity:0},250);
+		$(".mn-e").stop(true,true).animate({opacity:0},250);
+		$(".mn-n").stop(true,true).animate({opacity:0},250);
+		$(".mn-u").stop(true,true).animate({opacity:0},250);
+		$(this).stop(true,true).find(".logo").animate({left:40},600,function(){
+			// logo
+			$(this).stop(true,true).animate({opacity:1},600);
+			})
+		})	
+	$(".menu").mouseleave(function(){
+		// menu
+		$(".mn-m").stop(true,true).animate({opacity:1},600);
+		$(".mn-e").stop(true,true).animate({opacity:1},600);
+		$(".mn-n").stop(true,true).animate({opacity:1},600);
+		$(".mn-u").stop(true,true).animate({opacity:1},600);
+		// logo		
+		$(this).find(".logo").css({"display":"none","opacity":0});
+		})
+
+	// 滚动条
+
+	$(window).scroll(function(){
+		var top = $(document).scrollTop();          //定义变量，获取滚动条的高度
+
+		var menu = $("#menu");                      //定义变量，抓取#menu
+
+		var items = $("#scene").find(".item");    //定义变量，查找.item
+
+		var curId = "";                             //定义变量，当前所在的楼层item #id
+
+		items.each(function(){
+			var m = $(this);                        //定义变量，获取当前类
+			var itemsTop = m.offset().top;        //定义变量，获取当前类的top偏移量
+
+			if(top > itemsTop-100){
+				curId = "#" + m.attr("id");
+			}else{
+				return false;
+			}
+		});
+		//给相应的楼层设置cur,取消其他楼层的cur
+		var curLink = menu.find(".cur");
+		if( curId && curLink.attr("href") != curId ){
+			curLink.removeClass("cur");
+			menu.find( "[href=" + curId + "]").addClass("cur");
+		}
+	});
+
+
+
+	// 滚动条
+	
+    $(".ft-arrow").click(function(){  
+        $('body,html').stop().animate({scrollTop:0},4000);
+    });
+	/*
+	var top;
+	var navTop0 = $(".banner").offset().top;
+	var navTop1 = $(".onefan").offset().top;
+	var navTop2 = $(".anquandw").offset().top;
+	var navTop3 = $(".twopower").offset().top;
+	var navTop4 = $(".technology").offset().top;
+	var navTop5 = $(".experience").offset().top;
+	var navTop6 = $(".product").offset().top;
+    $(window).scroll(function() {
+		top = $(document).scrollTop();
+		if(top>navTop0){
+			$(".sl-red").stop().animate({top:0},300);
+			$(".sl-text").text("力帆820");
+		}
+		if(top>navTop1){
+			$(".sl-red").stop().animate({top:40},300);
+			$(".sl-text").text("外观");
+		}
+		if(top>navTop2){
+			$(".sl-red").stop().animate({top:80},300);
+			$(".sl-text").text("安全");
+		}
+		if(top>navTop3){
+			$(".sl-red").stop().animate({top:120},300);
+			$(".sl-text").text("动力");
+		}
+		if(top>navTop4){
+			$(".sl-red").stop().animate({top:160},300);
+			$(".sl-text").text("科技");
+		}
+		if(top>navTop5){
+			$(".sl-red").stop().animate({top:200},300);
+			$(".sl-text").text("体验");
+		}
+		if(top>navTop6){
+			$(".sl-red").stop().animate({top:240},300);
+			$(".sl-text").text("联系");
+		}
+    })
+
+
+
+
+	$(".scroll li").click(function(){
+		var index = $(".scroll li").index(this);
+			switch (index)
+			{
+			case 0:
+			 $('body,html').stop().animate({scrollTop:navTop0+5},1000);
+			  break;
+			case 1:
+			  $('body,html').stop().animate({scrollTop:navTop1+5},1000);
+			  break;
+			case 2:
+			  $('body,html').stop().animate({scrollTop:navTop2+5},1000);
+			  break;
+			case 3:
+			  $('body,html').stop().animate({scrollTop:navTop3+5},1000);
+			  break;
+			case 4:
+			  $('body,html').stop().animate({scrollTop:navTop4+5},1000);
+			  break;
+			case 5:
+			  $('body,html').stop().animate({scrollTop:navTop5+5},1000);
+			  break;
+			case 6:
+			  $('body,html').stop().animate({scrollTop:navTop6+5},1000);
+			  break;
+			}
+		})
+*/
+	// 幻灯片
+	var length=0;
+	length=$(".bn-li").length;
+	// 幻灯载入
+	var bnIndex=0;
+	bnLoad(bnIndex);
+	var alt;
+	function bnLoad(bnIndex){
+		alt=$(".bn-photo").eq(bnIndex).attr("alt");
+		$(".bn-photo").eq(bnIndex).attr("src",alt);
+		$(".bn-photo").eq(bnIndex).load(function(){
+			bnIndex++;
+			if(bnIndex>length-1){
+				return false;
+				}
+			bnLoad(bnIndex);
+			})
+		}
+	// 幻灯长度
+	var widthList=(length*100)+"%";
+	$(".bn-list").css("width",widthList);
+	var widthLi=100/length;
+	widthLi=widthLi+"%";
+	$(".bn-li").css("width",widthLi);
+	var w=$(".bn-li").width();
+	// 窗口重制
+	$(window).resize(function(){
+		width();
+	});	
+	// 切换
+	$(".bn-right").click(function(){
+		$(".bn-list").stop().animate({marginLeft:-w},600,function(){
+			$(".bn-list li:first").insertAfter(".bn-list li:last");
+			$(".bn-list").css("margin-left",0);
+			});
+		})
+	$(".bn-left").click(function(){
+		$(".bn-list").css("margin-left",-w);
+		$(".bn-list li:last").insertBefore(".bn-list li:first");
+		$(".bn-list").stop().animate({marginLeft:0},600);
+		})
+	// 长度重制	
+	function width(){
+		w=$(".bn-li").width();
+		}				
+		
+	// 空间图
+	var scL=0;
+	scL=$(".sc-bnLi").length;
+	var scListW=(scL*100)+"%";
+	$(".sc-bnList").css("width",scListW);
+	var scLiW=100/scL;
+	scLiW=scLiW+"%";
+	$(".sc-bnLi").css("width",scLiW);
+	var scW=$(".sc-bnLi").width();
+	// 切换
+	$(".sc-BnRight").click(function(){
+		$(".sc-bnList").stop().animate({marginLeft:-scW},600,function(){
+			$(".sc-bnList li:first").insertAfter(".sc-bnList li:last");
+			$(".sc-bnList").css("margin-left",1);
+			});
+		})
+	$(".sc-BnLeft").click(function(){
+		$(".sc-bnList").css("margin-left",-scW);
+		$(".sc-bnList li:last").insertBefore(".sc-bnList li:first");
+		$(".sc-bnList").stop().animate({marginLeft:1},600);
+		})	
+	// 按钮
+	$(".sc-bnBtLi").mouseenter(function(){
+		$(".sc-bnBtLi").css("color","#e60012");
+		$(this).css("color","#FFF");
+		})
+	$(".sc-bnBtLi").eq(0).mouseenter();
+	$(".sc-BnLeft").mouseenter(function(){
+		$(".sc-bnRed").stop().animate({left:0},300);
+		$(".sc-bnList").css("margin-left",-scW);
+		$(".sc-bnList li:last").insertBefore(".sc-bnList li:first");
+		$(".sc-bnList").stop().animate({marginLeft:1},600);		
+		})
+	$(".sc-BnRight").mouseenter(function(){
+		$(".sc-bnRed").stop().animate({left:94},300);
+		$(".sc-bnList").stop().animate({marginLeft:-scW},600,function(){
+			$(".sc-bnList li:first").insertAfter(".sc-bnList li:last");
+			$(".sc-bnList").css("margin-left",1);
+			});		
+		})	
+	
+	// 留言
+	$(".ma-ta").val("内容");
+	$(".ma-ta").focus(function(){
+		var con=$(".ma-ta").val();
+        if(con!="内容"&&con!=" "){
+			}else if(con=="内容"){
+				$(".ma-ta").val("");
+				}
+		})
+	$(".ma-ta").blur(function(){
+		var con=$(".ma-ta").val();
+		if(con==""){
+			$(".ma-ta").val("内容");
+			}
+		})	
+	// 验证
+	// 点击提交		
+	$(".ma-bt").click(function(){
+		// 录入验证
+		var name=$(".ma-name").val();
+		var call=$(".ma-call").val();
+		// 姓名验证
+		var nameL=name.length;
+		// 正整数验收
+		var isMath=/^[0-9]*[1-9][0-9]*$/;		
+		// 手机验证
+		var isMobile=/^(?:13\d|15\d|18\d)\d{5}(\d{3}|\*{3})$/;
+		// 座机验证
+		var isPhone=/^((0\d{2,3})-)?(\d{7,8})(-(\d{3,}))?$/; 
+		
+		if(name=='Name'||call=='Tel'){
+			alert("请输入您的姓名和电话！我们会及时联系您。");
+			}else if(nameL<2){
+				alert("请确认您的姓名！");
+				return false;				
+			}else if(!call.match(isMobile) && !call.match(isPhone)){
+				alert("您的联系电话格式有误！");
+				return false;
+			}else{
+				$(".ma-button").click();
+				}
+		})	
+		
+	// 视频
+	$(".bn-vdRu").click(function(){
+		$(".video").css("display","block");
+		$(".vd-play").css({"margin-top":2000,"margin-left":-430});
+		$(".vd-back").stop().animate({opacity:0.7},1000);
+		$(".vd-play").stop().animate({marginTop:-300},1500).animate({marginTop:-255},500);
+		})	
+	$(".vd-down").click(function(){
+		$(".vd-play").stop().animate({marginLeft:-200},300).animate({marginLeft:-2000},300);
+		$(".vd-back").stop().animate({opacity:0},1200,function(){
+			$(".video").css("display","none");
+			});			
+		})
+		
+	// 产品参数
+	$(".pd-tx01").click(function(){
+		$(".form").css("display","block");
+		$(".form-container").css({"margin-top":2000,"opacity":0});
+		$(".form-back").stop().animate({opacity:0.7},600);
+		$(".form-container").stop().animate({marginTop:-230,opacity:1},1200).animate({marginTop:-200},300);
+		})	
+	$(".form-back").click(function(){
+		$(".form-container").stop().animate({marginTop:2000,opacity:0},300);
+		$(".form-back").stop().animate({opacity:0},900,function(){
+			$(".form").css("display","none");
+			});		
+		})
+	// 二维码
+	$(".maiwei-wx").click(function(){
+		$(".maiwei-ewmBc").css("display","block");
+		$(".maiwei-ewm").stop().animate({marginTop:-100},600).animate({marginTop:-80},300);
+		})	
+	$(".maiwei-ewmBc").click(function(){
+		$(".maiwei-ewm").stop().animate({marginTop:1000},300,function(){
+			$(".maiwei-ewmBc").css("display","none");
+			});
+		})				
+			
+// 图片载入		
+$(function() {
+  $("img.lazy").lazyload({ threshold : 400 });
+});
+// 动画
+new WOW().init();
+
+})
+
+
+//--------------------------乐途效果--------------------------
+$(function(){
+	var indexy1 = 0;
+	var leng1 = $(".zhlrit_two ul li").length-1;
+	var timer1 = null;
+
+	$('.btnz1_lf').click(function(){
+		indexy1 --;
+		if( indexy1 < 0){ indexy1 = leng1};
+		$(".zhlrit_two ul").stop().animate({ 'marginLeft' : -446*indexy1 + 'px'},400);
+	})
+
+	$('.btnz1_rt').click(function(){
+		indexy1 ++;
+		if( indexy1 > leng1){ indexy1 = 0};
+		$(".zhlrit_two ul").stop().animate({ 'marginLeft' : -446*indexy1 + 'px'},400);
+	})
+
+	//自动滚动
+	function autoPlay1(){
+		timer1 = setInterval(function(){
+			indexy1 ++;
+			if( indexy1 > leng1){ indexy1 = 0};
+			$(".zhlrit_two ul").stop().animate({ 'marginLeft' : -446*indexy1 + 'px'},400);
+		},3000)
+
+	}
+	autoPlay1();
+	$(".zhlrit_two").hover(function(){
+		clearInterval(timer1);
+	},function(){
+		autoPlay1();
+	})
+
+
+
+	var indexy2 = 0;
+	var leng2 = $(".hon_cnt_cmg ul li").length-1;
+	var timer2 = null;
+
+	$('.hon_cnt_btn_lf').click(function(){
+		indexy2 --;
+		if( indexy2 < 0){ indexy2 = leng2};
+		$(".hon_cnt_cmg ul").stop().animate({ 'marginLeft' : -306*indexy2 + 'px'},400);
+	})
+
+	$('.hon_cnt_btn_rt').click(function(){
+		indexy2 ++;
+		if( indexy2 > leng2){ indexy2 = 0};
+		$(".hon_cnt_cmg ul").stop().animate({ 'marginLeft' : -306*indexy2 + 'px'},400);
+	})
+
+	//自动滚动
+	function autoPlay2(){
+		timer2 = setInterval(function(){
+			indexy2 ++;
+			if( indexy2 > leng2){ indexy2 = 0};
+			$(".hon_cnt_cmg ul").stop().animate({ 'marginLeft' : -306*indexy2 + 'px'},400);
+		},3000)
+
+	}
+	autoPlay2();
+	$(".hon_cnt").hover(function(){
+		clearInterval(timer2);
+	},function(){
+		autoPlay2();
+	})
+
+
+	var indexy3 = 0;
+	var leng3 = $(".nfe_sfc ul li").length-1;
+	var timer3 = null;
+
+	$('.mry_btn_lf').click(function(){
+		indexy3 --;
+		if( indexy3 < 0){ indexy3 = leng3};
+		$(".nfe_sfc ul").stop().animate({ 'marginLeft' : -1190*indexy3 + 'px'},400);
+	})
+
+	$('.mry_btn_rt').click(function(){
+		indexy3 ++;
+		if( indexy3 > leng3){ indexy3 = 0};
+		$(".nfe_sfc ul").stop().animate({ 'marginLeft' : -1190*indexy3 + 'px'},400);
+	})
+	//自动滚动
+	function autoPlay3(){
+		timer3 = setInterval(function(){
+			indexy3 ++;
+			if( indexy3 > leng3){ indexy3 = 0};
+			$(".nfe_sfc ul").stop().animate({ 'marginLeft' : -1190*indexy3 + 'px'},400);
+		},3000)
+
+	}
+	autoPlay3();
+	$(".nfe_sfc").hover(function(){
+		clearInterval(timer3);
+	},function(){
+		autoPlay3();
+	})
+
+
+	var indexy4 = 0;
+	var leng4 = $(".fntsafl_n1 ul li").length-1;
+	var timer4 = null;
+
+	$('.dfgre_lf').click(function(){
+		indexy4 --;
+		if( indexy4 < 0){ indexy4 = leng4};
+		$(".fntsafl_n1 ul").stop().animate({ 'marginLeft' : -238*indexy4 + 'px'},400);
+	});
+
+	$('.dfgre_rt').click(function(){
+		indexy4 ++;
+		if( indexy4 > leng4){ indexy4 = 0};
+		$(".fntsafl_n1 ul").stop().animate({ 'marginLeft' : -238*indexy4 + 'px'},400);
+	})
+	//自动滚动
+	function autoPlay4(){
+		timer4 = setInterval(function(){
+			indexy4 ++;
+			if( indexy4 > leng4){ indexy4 = 0};
+			$(".fntsafl_n1 ul").stop().animate({ 'marginLeft' : -238*indexy4 + 'px'},400);
+		},3000)
+
+	}
+	autoPlay4();
+	$(".fntsafl_n1").hover(function(){
+		clearInterval(timer4);
+	},function(){
+		autoPlay4();
+	})
+
+
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,16 @@
+$(window).ready(function(e) {
+
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "// hm.baidu.com/hm.js?656c4e0aa1f6d12d33f451f7281fa505";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+
+
+
+	
+	})
+	
+	
