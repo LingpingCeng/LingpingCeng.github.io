@@ -1,0 +1,157 @@
+html,body{	
+	overflow-x: hidden;
+	height: 100%;
+	position: relative;	
+}
+
+.score{
+	height: 100%;
+	position: relative;
+}
+
+.score header{
+	width: 100%;
+	height: 1.2344rem;
+	border-bottom:1px solid #dddddd;
+	padding:0 0.3125rem;
+	box-sizing: border-box;
+}
+
+.score header>a img{
+	width: 0.25rem;
+	display:inline-block;
+	position:absolute;
+	left:0.3906rem;	
+	top:0.3906rem;
+}
+
+.score header>span{
+	width: 100%;
+	height: 1.2344rem;
+	display:inline-block;
+	line-height: 1.2344rem;
+	text-align:center;
+	font-size: 0.4375rem;
+	font-weight: bold;
+}
+
+.score_d1{
+	width:100%; 
+	height: 3.7812rem;
+	background: url("../img/bg_s.png")0 0 no-repeat;
+	background-size:cover;
+	padding:0.375rem 0 0 0;
+	box-sizing: border-box;
+	color:#fff;
+}
+
+.score_d1>div{
+	padding:0 0.3125rem 0 0.3125rem;
+	box-sizing: border-box;
+	height: 2.4419rem;
+}
+
+.score_d1>div>span{
+	display: inline-block;
+	float: right;
+	font-size: 0.2812rem;
+}
+
+.score_d1>div>h4{
+	display: inline-block;
+	font-size: 0.3438rem; 
+	margin-top: 0.375rem;
+}
+
+.score_d1>div>h4>em{
+	font-size:0.75rem;
+	margin-right: 0.1562rem;
+}
+
+.score_d1>div>p{
+	font-size:0.3438rem; 
+	line-height:0.4688rem;
+}
+
+.score_d1>ul{ 
+	height: 0.9375rem;
+	background: #be1d2d;
+	opacity: 0.4;
+}
+
+.score_d1>ul>li{
+	font-size: 0.3438rem;
+	border-right: 1px solid #cd6662;
+	line-height: 0.9375rem;
+	text-align: center;
+	width: 33%;
+	float: left;
+	color: #fff;
+}
+
+.score_d1>ul>li:nth-child(3){
+	border-right: 0
+}
+
+.score_d2{
+	height: 0.1875rem;
+	background: #f7f7f7;
+	border-bottom: 1px solid #dddddd;
+}
+
+.score_d3{
+	padding:0 0.3125rem;
+	box-sizing:border-box;
+}
+
+.score_d3>li{
+	display: flex;
+	padding: 0.25rem 0 0.25rem 0;
+	box-sizing: border-box;
+	height:1.7344rem; 
+	border-bottom: 1px solid #dddddd;
+}
+
+.score_d3>li>div{
+	height:100%;
+}
+
+.score_d3>li>div:nth-child(1){
+	width: 1.25rem;
+}
+
+.score_d3>li>div:nth-child(1) img{
+	width: 1.25rem;
+}
+
+.score_d3>li>div:nth-child(2){
+	margin-left:0.2812rem;  
+	flex: 1;
+}
+
+.score_d3>li>div:nth-child(2) p{
+	line-height: 0.5rem;
+	font-size: 0.3125rem;
+	font-weight:bold;
+}
+
+.score_d3>li>div:nth-child(2) button{
+	background: #fff;
+	border:1px solid #dddddd; 
+	height:0.4375rem;
+	line-height: 0.4375rem;
+	text-align: center;
+	color: #999999;
+	border-radius:0.0625rem;
+}
+
+.score_d3>li>div:nth-child(3){
+	width: 1.75rem;
+	font-size: 0.2812rem;
+}
+
+.score_d3>li>div:nth-child(3) em{
+	font-size: 0.375rem;
+	font-weight:bold;
+	float: right;
+}

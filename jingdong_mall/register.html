@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<meta content="yes" name="apple-mobile-web-app-capable">
+	<meta content="yes" name="apple-touch-fullscreen">
+	<meta content="telephone=no,email=no" name="format-detection">
+	<meta name="wap-font-scale" content="no">
+	<script src="js/flexible.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/common.css">
+	<link rel="stylesheet" type="text/css" href="css/register.css">
+	<title>注册</title>
+</head>
+<body>
+	<div class="container">
+		<header>
+			<a href="javascript:window.history.back();"> < </a>
+			<h2>注册</h2>
+		</header>
+		<div class="content">
+			<form>
+				<div class="div3">
+					<input type="vcode" placeholder="请输入验证码" name="vcode">
+					<div>
+						<img src="img/icon_pasw.png">
+					</div>
+				</div>
+
+				<div class="phone">
+					<input type="text" placeholder="请输入手机号" name="text">
+					<a href="#">获取短信验证码</a>
+				</div>
+
+				<div class="posit">
+					<input type="password" placeholder="请输入短信验证码" name="password">
+				</div>
+
+				<div class="posit">
+					<input type="password" placeholder="请设置6-20位登陆密码" name="password">
+					<div class="pass">
+						<span></span>
+					</div>
+				</div>
+				
+				<input type="submit" value="注册" id="submit">
+			</form>
+
+			<div class="footer">
+				<a href="#"> 《用户隐私政策》 </a>
+			</div>
+
+		</div>
+	</div>
+</body>
+</html>

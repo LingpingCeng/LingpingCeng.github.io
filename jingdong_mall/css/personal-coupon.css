@@ -1,0 +1,239 @@
+html,body{	
+	overflow-x: hidden;
+	height: 100%;
+	position: relative;	
+}
+
+.coupon{
+	height: 100%;
+	position: relative;
+	background: #f7f7f7;
+}
+
+.coupon header{
+	width: 100%;
+	height: 1.2344rem;
+	border-bottom:1px solid #dddddd;
+	padding:0 0.3125rem;
+	box-sizing: border-box;
+	background: #fff;
+}
+
+.coupon header>a img{
+	width: 0.25rem;
+	display:inline-block;
+	position:absolute;
+	left:0.3906rem;	
+	top:0.3906rem;
+}
+
+.coupon header>span{
+	width: 100%;
+	display:inline-block;
+	line-height: 1.2344rem;
+	text-align:center;
+	font-size: 0.4375rem;
+	font-weight: bold;
+}
+
+.coupon header>em{
+	position: absolute;
+	right:0.3125rem;
+	height: 1.2344rem;
+	line-height: 1.2344rem;
+	font-size: 0.3438rem;
+	color: #999999;
+}
+
+.coupon_d1{
+	background: #fff;
+	height: 1.0625rem;
+	display: flex;
+	line-height: 1.0625rem;
+	text-align: center;
+	font-size: 0.3438rem;
+}
+
+.coupon_d1>a{
+	width: 25%;
+}
+
+.activs{
+	border-bottom:1px solid #ff2150;
+}
+
+.coupon_list{
+	padding:0.3281rem 0.3125rem; 
+}
+
+.coupon_list>li:nth-child(1){
+	display: flex;
+	padding: 0.375rem 0.5rem;
+	box-sizing: border-box;
+	width: 100%;
+	height: 2.1719rem;
+	background: url("../img/bg_c (2).png")0 0 no-repeat;
+	background-size: 9.375rem;
+	margin-bottom:0.2812rem; 
+}
+
+.list_d1{
+	width: 5.3125rem;
+}
+
+.list_d1 p:nth-child(1){
+	font-size: 0.3125rem;
+	color: #fff;
+	line-height:0.4375rem; 
+}
+
+.list_d1 p:nth-child(2){
+	font-size: 0.2812rem;
+	color: #fff;
+	line-height:0.4375rem; 
+}
+
+.list_d1 p:nth-child(2) span{
+	font-size:0.75rem;
+	line-height: 0.8438rem;
+	margin-right: 0.1562rem;
+	display:inline-block; 
+}
+
+.list_d2{
+	flex: 1;
+	width: 2.6562rem;
+	font-size: 0.3125rem;
+	color: #999999;
+}
+
+.list_d2 p{
+	width: 100%;
+	text-align: center;
+}
+
+.coupon_list>li:nth-child(2){
+	display: flex;
+	padding: 0.375rem 0.5rem;
+	box-sizing: border-box;
+	width: 100%;
+	height: 2.1719rem;
+	background: url("../img/bg_c (2).png")0 0 no-repeat;
+	background-size: 9.375rem;
+	margin-bottom:0.2812rem; 
+}
+
+.list_d1{
+	width: 5.3125rem;
+}
+
+.list_d1 p:nth-child(1){
+	font-size: 0.3125rem;
+	color: #fff;
+	line-height:0.4375rem; 
+}
+
+.list_d1 p:nth-child(2){
+	font-size: 0.2812rem;
+	color: #fff;
+	line-height:0.4375rem; 
+}
+
+.list_d1 p:nth-child(2) span{
+	font-size:0.75rem;
+	line-height: 0.8438rem;
+	margin-right: 0.1562rem;
+	display:inline-block; 
+}
+
+.list_d2{
+	flex: 1;
+	width: 2.6562rem;
+	font-size: 0.3125rem;
+	color: #999999;
+}
+
+.list_d2 p{
+	width: 100%;
+	text-align: center;
+}
+
+.coupon_list>li:nth-child(3){
+	display: flex;
+	padding: 0.375rem 0.5rem;
+	box-sizing: border-box;
+	width: 100%;
+	height: 2.1719rem;
+	background: url("../img/bg_c (2).png")0 0 no-repeat;
+	background-size: 9.375rem;
+	margin-bottom:0.2812rem; 
+}
+
+.list_d1{
+	width: 5.3125rem;
+}
+
+.list_d1 p:nth-child(1){
+	font-size: 0.3125rem;
+	color: #fff;
+	line-height:0.4375rem; 
+}
+
+.list_d1 p:nth-child(2){
+	font-size: 0.2812rem;
+	color: #fff;
+	line-height:0.4375rem; 
+}
+
+.list_d1 p:nth-child(2) span{
+	font-size:0.75rem;
+	line-height: 0.8438rem;
+	margin-right: 0.1562rem;
+	display:inline-block; 
+}
+
+.list_d2{
+	flex: 1;
+	width: 2.6562rem;
+	font-size: 0.3125rem;
+	color: #999999;
+}
+
+.list_d2 p{
+	width: 100%;
+	text-align: center;
+}
+
+
+.coupon_list>li:nth-child(4){
+	display: flex;
+	padding: 0.375rem 0.5rem;
+	box-sizing: border-box;
+	width: 100%;
+	height: 2.1719rem;
+	background: url("../img/bg_c (1).png")0 0 no-repeat;
+	background-size: 9.375rem;
+	margin-bottom:0.2812rem; 
+}
+
+.coupon_list>li:nth-child(5){
+	display: flex;
+	padding: 0.375rem 0.5rem;
+	box-sizing: border-box;
+	width: 100%;
+	height: 2.1719rem;
+	background: url("../img/bg_c (1).png")0 0 no-repeat;
+	background-size: 9.375rem;
+	margin-bottom:0.2812rem; 
+}
+
+.coupon_list>li:nth-child(6){
+	display: flex;
+	padding: 0.375rem 0.5rem;
+	box-sizing: border-box;
+	width: 100%;
+	height: 2.1719rem;
+	background: url("../img/bg_c (1).png")0 0 no-repeat;
+	background-size: 9.375rem;
+	margin-bottom:0.2812rem; 
+}

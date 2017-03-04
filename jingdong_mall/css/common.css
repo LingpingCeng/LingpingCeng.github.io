@@ -1,0 +1,40 @@
+*{
+	margin:0;
+	padding:0;
+}
+
+ul,ol{
+	list-style: none;
+}
+
+a{
+	text-decoration: none;
+	color:#333;
+}
+
+a:hover{
+	color:red;
+}
+
+i,em{
+	font-style:normal;
+}
+
+img{
+	display: block;
+	border:0;
+}
+
+.clearfix:after{
+	display: block;
+	clear:both;
+	height:0;
+	overflow:hidden;
+	content:" ";
+}
+
+@media screen and (max-width:320px;){
+	body{
+		font-size: 12px!important;
+	}
+}
