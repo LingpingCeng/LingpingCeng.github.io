@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>谭夹娃娃</title>
+    <meta name="renderer" content="webkit">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="screen-orientation" content="portrait">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" type="text/css" href="css/new_bady.css">
+    <link rel="stylesheet" type="text/css" href="css/reset.css">
+    <script src="js/lib/jquery.min.js"></script>
+	<script data-main='js/main' src='js/lib/require.min.js'></script>
+	<script type="text/javascript">
+    	//监听用户是否横屏
+    	window.addEventListener("orientationchange", function(){
+			var changeFlag = window.orientation;
+    		if( changeFlag == 90 ||  changeFlag == -90){    
+    			document.getElementById("sec").style.display = "none";
+    			alert('为了您有更好的体验，请用竖屏打开。');
+    		}else{	
+    			document.getElementById("sec").style.display = "block";
+			}
+		},false);
+
+		require(['app/index'],function(index){});
+
+	</script>
+	
+</head>
+<body>
+	<div class="wrap">
+		<!-- plane 主要内容 -->
+		<section id="sec">
+			<!--进度条-->
+			<div class="content">
+				<div class="index_d" style="display: none;">
+					<img src="img/start-page.png">
+					<div class="ing">						
+						<div class="percentage"></div>
+						<div class="percentage1">0%</div>
+					</div>
+					<img src="img/start-page_size.png" class="size">
+				</div>
+			</div>
+		</section>
+		<!-- plane 主要内容end -->
+				
+		<!-- 底部导航栏 -->
+		<footer class="footer" style="display: none;">
+			<ul class="foot_ul">
+				<li class='foot_bg'><a href="#/bady">夹娃娃</a></li>
+				<li><a href="#/income">记录</a></li>
+				<li><a href="#/refer">查询</a></li>
+				<li><a href="#/agency">代理赚钱</a></li>
+				<li><a href="#/service">客服</a></li>
+			</ul>
+		</footer>
+		<!-- 底部导航栏 end-->
+		<script type="text/javascript">
+
+
+			var hash = window.location.hash;
+			var footlist = document.getElementsByClassName('foot_ul')[0].children;			
+				switch(hash){
+					case "#/bady":
+						footlist[0].className='foot_bg';						
+					break;
+					case "#/income":
+						footlist[1].className='foot_bg';
+						footlist[0].className ='';	
+					break;
+					case "#/refer":
+						footlist[2].className='foot_bg';
+						footlist[0].className ='';	
+					break;
+					case "#/agency":
+						footlist[3].className='foot_bg';
+						footlist[0].className ='';	
+					break;
+					case "#/service":
+						footlist[4].className ='foot_bg';
+						footlist[0].className ='';		
+					break;
+				}	
+
+				for (var i = 0; i <footlist.length; i++) {
+					footlist[i].addEventListener('touchstart',function(){
+						for(var j=0;j<footlist.length;j++){
+							footlist[j].className = " ";	
+						}
+						this.className = "foot_bg";	
+					})					
+				}
+		</script>
+	</div>
+</body>
+</html>
